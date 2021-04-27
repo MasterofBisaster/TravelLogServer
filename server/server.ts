@@ -9,9 +9,9 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
 
- /* ioServer.listen(process.env.WSPORT || 4700, () => {
-    console.log('WebSockets are available at port ' + (process.env.WSPORT || 4700));
-  }); */
+  /* ioServer.listen(process.env.WSPORT || 4700, () => {
+     console.log('WebSockets are available at port ' + (process.env.WSPORT || 4700));
+   }); */
   app.listen(app.get('port'), () => {
 
   });
