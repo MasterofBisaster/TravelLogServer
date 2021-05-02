@@ -78,6 +78,7 @@ export interface IPOI {
   type: string;
   creator?: mongoose.Schema.Types.ObjectId|{_id: string, username: string}|IUser;
   createdAt?: Date
+  images?: Image[];//mongoose.Schema.Types.ObjectId[]|IImage[];
 }
 
 export interface LoadableDocument<T extends mongoose.Document> {
@@ -88,8 +89,15 @@ export interface IPOIDocument extends IPOI, mongoose.Document {
   _id: mongoose.Schema.Types.ObjectId;
 }
 
+
 export interface IPOIModel extends IPOI, mongoose.Model<IPOIDocument>, LoadableDocument<IPOIDocument> {}
 
+export interface Image {
+  id: mongoose.Schema.Types.ObjectId,
+  description?: string,
+  uploaded: Date,
+  user: string
+}
 export interface ITrip {
   name: string;
   description?: string;
